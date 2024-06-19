@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tata Steel Coal Prediction Project</title>
+    <link rel="shortcut icon" href="/static/img/logo.png" type="image/x-icon" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      body {
+        /* background: #111; */
+        overflow: hidden;
+      }
+
+      #main {
+        height: 100%;
+        width: 100%;
+        background-image: url(/static/img/main2.jpg);
+        background-repeat: no-repeat;
+        background-size: 70%;
+        background-position-x: 3%;
+        background-position-y: 110%;
+      }
+      nav {
+        display: flex;
+        justify-content: space-evenly;
+        height: 120px;
+        margin: 20px;
+        margin-left: -320px;
+      }
+      nav img {
+        margin-top: -20px;
+        height: 210px;
+      }
+      nav h2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 65px;
+        margin: 50px;
+        text-decoration: underline dashed;
+      }
+      #calc {
+        height: 70%;
+        width: 40%;
+        position: absolute;
+        right: 120px;
+        /* background-color: rebeccapurple; */
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: -3% 4%;
+      }
+      label {
+        font-size: 35px;
+        padding: 16px;
+        font-family: monospace;
+        margin: 6px 0px;
+        cursor: pointer;
+      }
+      input {
+        float: right;
+        cursor: pointer;
+        border: 2px solid black;
+        height: 40px;
+        width: 50%;
+        font-size: 20px;
+      }
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      button {
+        height: 20%;
+        width: 30%;
+        padding: 7px;
+        font-size: 17px;
+        font-weight: 700;
+        background: #fff;
+        border-radius: 30px;
+        border: 3px solid red;
+        margin-left: 200px;
+      }
+      button:hover {
+        color: white;
+        background-color: #111;
+        cursor: pointer;
+        transition: ease;
+      }
+      button:active {
+        scale: 0.85;
+      }
+      #pred {
+        color: red;
+        font-size: 30px;
+        margin-left: 120px;
+        font-variant: small-caps;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <nav>
+        <img src="/static/img/jcb.png" alt="logo" />
+        <h2>Coal Prediction !!</h2>
+      </nav>
+      <section id="calc">
+        <form method="POST" action="/predict">
+          <label for="lp"
+            >First Value:
+            <input
+              type="text"
+              name="lp"
+              id="lp"
+              placeholder="Enter LP Value"
+              required
+            />
+          </label>
+          <label for="dp"
+            >Second Value:
+            <input
+              type="text"
+              name="dp"
+              id="dp"
+              placeholder="Enter DP Value"
+              required
+            />
+          </label>
+          <label for="port_outgoing"
+            >Third Value:
+            <input
+              type="text"
+              name="port_outgoing"
+              id="port_outgoing"
+              placeholder="Enter Port Outgoing Value"
+              required
+            />
+          </label>
+          <button>PREDICT</button>
+          <br />
+          <h2 id="pred">{{prediction_text}}</h2>
+        </form>
+      </section>
+    </div>
+  </body>
+</html>
